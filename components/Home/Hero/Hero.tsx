@@ -11,7 +11,7 @@ const Hero = () => {
            <div>
             <h1 
                 data-aos="fade-left" className="text-2xl md:text-3xl lg:text-4xl mb-5 text-gray-300 font-semibold" >
-                I'm {BaseInfo.name} 
+                I am {BaseInfo.name} 
             </h1>
             <h1 
                 data-aos="fade-left" data-aos-delay="100" className="text-bg text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold 
