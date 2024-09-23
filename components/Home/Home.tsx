@@ -26,6 +26,7 @@ useEffect(() => {
 }, []);
 
   return ( 
+    <section id="home">
   <div className="overflow-hidden">
     <Hero />
     <About />
@@ -33,6 +34,7 @@ useEffect(() => {
     <Skills />
     <Contact />
   </div>
+  </section>
 );
 };
 

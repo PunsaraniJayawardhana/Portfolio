@@ -1,27 +1,63 @@
-import React from 'react'
+"use client";
+import React , { useEffect , useRef} from 'react'
+import {useFormStatus} from 'react-dom'
+import {handleSubmit} from '@/actions/sendEmail'
+import toast from 'react-hot-toast';
 
 const ContactForm = () => {
+  const {pending} = useFormStatus();
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleFormSubmit = async (formData: FormData) => {
+    // Log formData being sent
+    console.log("Form submitted with:", formData.get("name"), formData.get("email"), formData.get("description"));
+
+
+    const response = await handleSubmit(formData);
+    console.log("Form submit response:", response); // Log the response from the handleSubmit
+
+    if (response?.error) {
+        toast.success("Email sent successfully!");
+        if (formRef.current) {
+            formRef.current.reset(); // Reset the form fields
+        }
+    } else if (response?.error) {
+        toast.error(`Error: ${response.error}`);
+    }
+};
+
+  
+
   return (
     <div
         data-aos="fade-left"
         className="bg-[#140c1c] rounded-lg p-4 sm:p-10" >
         <h1 className="text-bg text-2xl md:text-3xl lg:text-[2.5rem] font-bold">
-          Let's work together!
+          Reach Me
         </h1>
         <p className="text-gray-200 mt-3 lg:text-base text-xs md:text-sm">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea beatae quia
-        excepturi corrupti repellendus. Aliquid!
+        Hello! Thank you so much for your time!<br/>
+Feel free to drop me an email through this form if you want to contact me on any occassion.
         </p>
-        <form className="mt-8 block w-full overflow-hidden">
+        <form 
+              ref={formRef}
+              onSubmit={async (e) => {
+                e.preventDefault(); // Prevent form from submitting the default way
+                const formData = new FormData(formRef.current!);
+                handleFormSubmit(formData);
+              }}
+          className="mt-8 block w-full overflow-hidden">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <input 
                 type="text" 
+                name="fname"
                 placeholder="First Name" 
                 className="flex-1 bg-black text-white placeholder:text-gray-600 px-6 py-2 rounded-md border-[1.5px]
                 border-gray-200 border-opacity-15 outline-none w-full "
              />
              <input 
-                type="text" 
+                type="text"
+                name="lname" 
                 placeholder="Last Name" 
                 className="flex-1 bg-black text-white placeholder:text-gray-600 px-6 py-2 rounded-md border-[1.5px]
                 border-gray-200 border-opacity-15 outline-none w-full "
@@ -30,25 +66,37 @@ const ContactForm = () => {
             <div className="flex  mt-5 flex-col md:flex-row items-center justify-between gap-4">
             <input 
                 type="email" 
+                name="email"
                 placeholder="Email Address" 
                 className="flex-1 bg-black text-white placeholder:text-gray-600 px-6 py-2 rounded-md border-[1.5px]
                 border-gray-200 border-opacity-15 outline-none w-full "
              />
              <input 
                 type="text" 
+                name="number"
                 placeholder="Phone Number" 
                 className="flex-1 bg-black text-white placeholder:text-gray-600 px-6 py-2 rounded-md border-[1.5px]
                 border-gray-200 border-opacity-15 outline-none w-full "
              />
             </div>
-            <textarea className="w-full mt-5 bg-black text-white placeholder::text-gray-600 px-4 py-3.5 rounded-md
+            <textarea
+            name="description" 
+            className="w-full mt-5 bg-black text-white placeholder::text-gray-600 px-4 py-3.5 rounded-md
             border-[1.5] border-gray-200 border-opacity-15 outline-none " rows={7} placeholder="Message" >
 
             </textarea>
             <div className="mt-4">
-                <button className="px-8 py-3.5 bg-[#7947df] transition-all
-                duration-150 rounded-full ">
-                    Send Message
+                <button type='submit'
+                 className="px-8 py-3.5 bg-[#7947df] transition-all
+                duration-150 rounded-full"
+                disabled={pending} >
+                    {
+            pending? (
+            <div className='h-5 w-5 animate-spin rounded-full border-b-2 border-gray-900'></div>
+          ):(
+                <>Send </>
+            )
+        }
                 </button>
             </div>
         </form>
@@ -56,4 +104,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm
+export default ContactForm;

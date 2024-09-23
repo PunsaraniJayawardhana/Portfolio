@@ -2,10 +2,11 @@ import SectionHeading from '@/components/Helper/SectionHeading';
 import { aboutInfo } from '@/Data/data';
 import React from 'react';
 import { FaCheck } from 'react-icons/fa';
-import Image from 'next/image';
+
 
 const About = () => {
   return (
+    <section id="about">
     <div className="pt-16 pb-16 bg-[#050709] ">
         <SectionHeading>About Me</SectionHeading>
         <div 
@@ -51,7 +52,7 @@ const About = () => {
         </div>
             
     </div>
-    
+    </section>  
   );
 };
 

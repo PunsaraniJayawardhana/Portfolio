@@ -11,7 +11,7 @@ type Props ={
 };
 
 const SkillCard = ({skill}:Props) => {
-    const {image,percent,title} = skill
+    const {image,title} = skill
   return (
     <div className="p-6 hover:bg-blue-900 duration-300 transition-all cursor-pointer text-center rounded-lg
     bg-blue-950">
