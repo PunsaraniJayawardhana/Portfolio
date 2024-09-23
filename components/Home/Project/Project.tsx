@@ -1,6 +1,5 @@
 import SectionHeading from '@/components/Helper/SectionHeading';
 import { projectData } from '@/Data/data';
-import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
 

@@ -1,5 +1,5 @@
 "use client";
-import React , { useEffect , useRef} from 'react'
+import React , { useRef} from 'react'
 import {useFormStatus} from 'react-dom'
 import {handleSubmit} from '@/actions/sendEmail'
 import toast from 'react-hot-toast';
