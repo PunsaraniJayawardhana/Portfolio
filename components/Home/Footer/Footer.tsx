@@ -34,7 +34,7 @@ const Footer = () => {
         <div>Contacts</div>
       </div>
       <p className="text-white text-opacity-60 mt-6 text-center">
-        © 2024 Convertio Ltd. All rights reserved. Terms of Use Privacy Policy
+        © 2024 PUNSARANI JAYAWARDHANA
       </p>
     </div>
   );

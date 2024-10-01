@@ -22,7 +22,8 @@ const About = () => {
                     </p>
                 </div>
             
-                <div className="mt-10 justify-items-center">
+                <div className="mt-10 flex flex-col items-center justify-center">
+
                     <div className="flex items-center space-x-2 mb-6">
                         <div className="w-7 h-7 bg-blue-800 flex flex-col items-center justify-center">
                             <FaCheck className="text-white"/>

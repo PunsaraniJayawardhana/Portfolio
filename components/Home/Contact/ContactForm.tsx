@@ -85,7 +85,7 @@ Feel free to drop me an email through this form if you want to contact me on any
             border-[1.5] border-gray-200 border-opacity-15 outline-none " rows={7} placeholder="Message" >
 
             </textarea>
-            <div className="mt-4">
+            <div className="flex justify-center mt-4">
                 <button type='submit'
                  className="px-8 py-3.5 bg-[#7947df] transition-all
                 duration-150 rounded-full"

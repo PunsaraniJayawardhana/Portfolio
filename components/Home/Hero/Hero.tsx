@@ -1,17 +1,18 @@
 import { BaseInfo } from '@/Data/data';
-import React from 'react';
-import { FaDownload } from 'react-icons/fa';
+import React from "react";
+import { FaDownload } from "react-icons/fa";
 import Image from 'next/image';
 
 const Hero = () => {
   return (
-  <div className="w-full justify-items-center pt-[4vh] md:pt-[12vh] h-screen bg-[#0f0715] overflow-hidden relative it">
-    <div className="flex justify-center flex-col w-4/5 h-full mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-           <div>
+    <div className="w-full pt-[4vh] md:pt-[12vh] h-screen bg-[#0f0715] overflow-hidden relative">
+      <div className="flex justify-center flex-col w-4/5 h-full mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+         
+        <div>
             <h1 
                 data-aos="fade-left" className="text-2xl md:text-3xl lg:text-4xl mb-5 text-gray-300 font-semibold" >
-                I am {BaseInfo.name} 
+                Hello, I am {BaseInfo.name}. 
             </h1>
             <h1 
                 data-aos="fade-left" data-aos-delay="100" className="text-bg text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold 
@@ -19,7 +20,7 @@ const Hero = () => {
                 {BaseInfo.position}
             </h1>
             <p data-aos="fade-left" data-aos-delay="200"
-                className="mt-6 text-sm md:text-base text-white text-opacity-60  ">
+                className="mt-6 text-sm md:text-base text-white text-opacity-60   ">
                 {BaseInfo.description}
             </p>
             <a
@@ -35,23 +36,24 @@ const Hero = () => {
                 </button>
             </a>
            </div>
-           <div 
-                data-aos="zoom-in" 
-                data-aos-delay="400"
-                className="mx-auto lg:block rounded-[3rem] border-[3.5px] border-purple-500 overflow-x-hidden fi">
-                <Image 
-                src={BaseInfo.profilePic} 
-                alt={BaseInfo.name} 
-                width={200}
-                height={200}
-                className=""/>
-            </div> 
+          <div 
+            data-aos="zoom-in" 
+            data-aos-delay="400"
+            className="flex justify-center lg:justify-end">
+                <div className="overflow-hidden rounded-[3rem] border-[3.5px] border-purple-500 profile-img">
+                <Image
+                    src={BaseInfo.profilePic}
+                    alt={BaseInfo.name}
+                    width={250}
+                    height={250}
+                    className="object-cover"
+                />
+                </div>
+          </div>
         </div>
+      </div>
     </div>
-  </div>
-
   );
-  
 };
 
 export default Hero;
