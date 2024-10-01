@@ -16,9 +16,10 @@ import { Tailwind } from '@react-email/components';
 type Props = {
     message:string;
     name:string;
+    number:string;
 }
 
-export default function Email({message, name}: Props) {
+export default function Email({message, name, number}: Props) {
   return (
    <Html>
     <Head/>
@@ -29,9 +30,10 @@ export default function Email({message, name}: Props) {
                 <Section className="bg-white borderBlack my-10 px-10 py-4 rounded-md">
                     <Heading className="leading-tight">You Received a New Message From Your Portfolio</Heading>
                     <Hr />
-                    <Text>{message}</Text>
+                    <Text>Message :{message}</Text>
                     <Hr />
                     <Text>The sender name is :{name}</Text>
+                    <Text>Contact sender :{number}</Text>
                 </Section>
             </Container>
         </Body>

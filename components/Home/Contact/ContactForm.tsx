@@ -10,7 +10,7 @@ const ContactForm = () => {
 
   const handleFormSubmit = async (formData: FormData) => {
     // Log formData being sent
-    console.log("Form submitted with:", formData.get("name"), formData.get("email"), formData.get("description"));
+    console.log("Form submitted with:", formData.get("name"), formData.get("email"), formData.get("description"), formData.get("description"));
 
 
     const response = await handleSubmit(formData);
