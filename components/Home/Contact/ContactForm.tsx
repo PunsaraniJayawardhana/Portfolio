@@ -16,18 +16,14 @@ const ContactForm = () => {
     const response = await handleSubmit(formData);
     console.log("Form submit response:", response); // Log the response from the handleSubmit
 
-    if (response?.error) {
-        toast.success("Email sent successfully!");
-        if (formRef.current) {
-            formRef.current.reset(); // Reset the form fields
-        }
-    } else if (response?.error) {
-        toast.error(`Error: ${response.error}`);
-    }
+    if (response?.success) {
+      alert("Message sent successfully!"); // Show the alert
+      window.location.reload(); // Reload the page after the alert
+  } else if (response?.error) {
+      alert(`Error: ${response.error}`); // Show error in alert if there was an issue
+  }
 };
-
   
-
   return (
     <div
         data-aos="fade-left"

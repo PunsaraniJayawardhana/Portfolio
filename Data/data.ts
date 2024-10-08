@@ -9,7 +9,7 @@ export const BaseInfo = {
     position: "Full Stack Developer",
     description:
       "Undergraduate at University of Moratuwa, seeking to apply competent development skills with focus on collaboration and passion.",
-    profilePic: "/images/me.png",
+    profilePic: "/images/me.jpeg",
   };
   
   export const aboutInfo = {
