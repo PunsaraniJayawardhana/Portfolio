@@ -8,19 +8,47 @@ const ContactForm = () => {
   const {pending} = useFormStatus();
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleFormSubmit = async (formData: FormData) => {
-    // Log formData being sent
-    console.log("Form submitted with:", formData.get("name"), formData.get("email"), formData.get("description"), formData.get("description"));
+//   const handleFormSubmit = async (formData: FormData) => {
+//     // Log formData being sent
+//     console.log("Form submitted with:", formData.get("name"), formData.get("email"), formData.get("description"), formData.get("description"));
 
 
+//     const response = await handleSubmit(formData);
+//     console.log("Form submit response:", response); // Log the response from the handleSubmit
+
+//     if (response?.success) {
+//       alert("Message sent successfully!"); // Show the alert
+//       window.location.reload(); // Reload the page after the alert
+//   } else if (response?.error) {
+//       alert(`Error: ${response.error}`); // Show error in alert if there was an issue
+//   }
+// };
+
+const handleFormSubmit = async (formData: FormData) => {
+  console.log("Submitting form data:", formData);
+
+  try {
     const response = await handleSubmit(formData);
-    console.log("Form submit response:", response); // Log the response from the handleSubmit
+    console.log("Form submit response:", response);
 
     if (response?.success) {
-      alert("Message sent successfully!"); // Show the alert
-      window.location.reload(); // Reload the page after the alert
-  } else if (response?.error) {
-      alert(`Error: ${response.error}`); // Show error in alert if there was an issue
+      alert("Message sent successfully!");
+
+      // Reload the page and return to the initial state (without retaining form state)
+      window.location.href = window.location.origin; // Redirect to the home page (or initial page)
+    } else if (response?.error) {
+      console.error("Error:", response.error); // Log the error
+      alert(`Error: ${response.error}`);
+    }
+  } catch (error) {
+    // Type guard to check if error is an instance of Error
+    if (error instanceof Error) {
+      console.error("Submission failed:", error.message); // Log the error message
+      alert(`Submission failed: ${error.message}`);
+    } else {
+      console.error("Unknown error occurred:", error); // Log the raw unknown error
+      alert("An unknown error occurred.");
+    }
   }
 };
   
