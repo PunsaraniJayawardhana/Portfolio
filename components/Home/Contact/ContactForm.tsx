@@ -34,8 +34,8 @@ const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
           Reach Me
         </h1>
         <p className="text-gray-200 mt-3 lg:text-base text-xs md:text-sm">
-        Hello! Thank you so much for your time!<br/>
-Feel free to drop me an email through this form if you want to contact me on any occassion.
+          Hello! Thank you so much for your time!<br/>
+          Feel free to drop me an email through this form if you want to contact me on any occassion.
         </p>
         <form 
               ref={formRef}
@@ -74,10 +74,9 @@ Feel free to drop me an email through this form if you want to contact me on any
              />
             </div>
             <textarea
-            name="description" 
-            className="w-full mt-5 bg-black text-white placeholder::text-gray-600 px-4 py-3.5 rounded-md
-            border-[1.5] border-gray-200 border-opacity-15 outline-none " rows={7} placeholder="Message" >
-
+              name="description" 
+              className="w-full mt-5 bg-black text-white placeholder::text-gray-600 px-4 py-3.5 rounded-md
+              border-[1.5] border-gray-200 border-opacity-15 outline-none " rows={7} placeholder="Message" >
             </textarea>
             <div className="flex justify-center mt-4">
                 <button type='submit'

@@ -28,7 +28,6 @@ const About = () => {
                         <div className="w-7 h-7 bg-blue-800 flex flex-col items-center justify-center">
                             <FaCheck className="text-white"/>
                         </div>
-                        
                             <p className="text-sm sm:text-base md:text-lg font-bold text-gray-300">
                                 Frontend Development
                             </p>
@@ -51,7 +50,6 @@ const About = () => {
                     </div>
                 </div>
         </div>
-            
     </div>
     </section>  
   );
