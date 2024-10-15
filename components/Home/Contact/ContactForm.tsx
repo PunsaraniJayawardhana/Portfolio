@@ -20,7 +20,10 @@ const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   }
 
   toast.success("Email sent successfully!");
-  formRef.current?.reset(); // Reset the form fields
+
+  setTimeout(() => {
+    window.location.href = window.location.origin;
+  }, 2000);
 };
   
   return (
