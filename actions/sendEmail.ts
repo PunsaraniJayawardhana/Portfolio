@@ -65,26 +65,22 @@ export const handleSubmit = async (formData: FormData) => {
         });
 
         console.log("Email response:", emailResponse);
-        console.log("Email successfully sent"); // Log success message
 
-        return { success: true };
-    } catch (error: unknown) {
-        console.error("Email send error:", error); // Log the error
-
+    }  catch (error: unknown) {
         if (error instanceof Error) {
-            return {
-                error: error.message,
-            };
-        } else if (typeof error === "object" && error !== null && "message" in error) {
-            return {
-                error: (error as any).message,
-            };
+          return { error: error.message };
+        } else if (
+          typeof error === "object" &&
+          error !== null &&
+          "message" in error
+        ) {
+          return { error: (error as any).message };
         } else {
-            return {
-                error: "Something went wrong",
-            };
+          return { error: "Something went wrong" };
         }
-    }
+      }
+    
+      return { data: "Email sent successfully!" };
 };
 
 
